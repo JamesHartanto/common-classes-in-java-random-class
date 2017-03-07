@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.Random;
+
 /**
  * For this exercise you will complete the following class that prints out five
  * lucky numbers from -50 to 100 based on the current timestamp. For example:
@@ -17,32 +19,50 @@ public class LuckyNumbers {
      * Random. Don't initialize it here, you'll create constructors to do that.
      */
     // todo: create private property to hold an instance of Random
+    private Random rand;
 
-    /**
-     * Create a no-argument constructor that sets `rand` to an instance of
-     * Random.
-     */
-    // todo: create no-argument constructor
+        /**
+         * Create a no-argument constructor that sets `rand` to an instance of
+         * Random.
+         */
+        // todo: create no-argument constructor
+        public LuckyNumbers(){
+            rand = new Random();
+        }
 
-    /**
-     * Create a constructor that accepts a long argument. Create a new instance
-     * of Random and use the provided argument as its seed.
-     * @param timestamp
-     */
-    // todo: create a constructor that accepts a long argument
+        /**
+         * Create a constructor that accepts a long argument. Create a new instance
+         * of Random and use the provided argument as its seed.
+         * @param timestamp
+         */
+        // todo: create a constructor that accepts a long argument
+    public LuckyNumbers(long timestamp){
+        rand = new Random(timestamp);
+    }
 
-    /**
-     * Create a method named fiveLuckyNumbers() that returns nothing. When
-     * invoked, this method will generate five lucky numbers from -50 to 100,
-     * inclusive. IE: -50, -49, ... 99, 100. It will print a message to standard
-     * output that looks like this:
-     *
-     * Your five lucky numbers are: 1, 2, 3, 4, 5
-     *
-     * Obviously, the numbers printed will be the five numbers generated. Be
-     * sure to use the `rand` property as the random number generator.
-     */
-    // todo: create fiveLuckyNumbers() method
+    //Random rand2 = new Random( long timestamp);
 
+        /**
+         * Create a method named fiveLuckyNumbers() that returns nothing. When
+         * invoked, this method will generate five lucky numbers from -50 to 100,
+         * inclusive. IE: -50, -49, ... 99, 100. It will print a message to standard
+         * output that looks like this:
+         *
+         * Your five lucky numbers are: 1, 2, 3, 4, 5
+         *
+         * Obviously, the numbers printed will be the five numbers generated. Be
+         * sure to use the `rand` property as the random number generator.
+         */
+        // todo: create fiveLuckyNumbers() method
 
+    public void fiveLuckyNumbers() {
+        System.out.printf("Your five lucky numbers are: %s, %s, %s, %s, %s",
+                rand.nextInt(151) - 50,
+                rand.nextInt(151) - 50,
+                rand.nextInt(151) - 50,
+                rand.nextInt(151) - 50,
+                rand.nextInt(151) - 50);
+    }
 }
+
+
